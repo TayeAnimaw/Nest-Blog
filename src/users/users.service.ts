@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { User } from './entities/user.entity';
+import { User, UserRole } from './entities/user.entity';
 
 export interface CreateUserData {
   name: string;
@@ -28,6 +28,7 @@ export class UsersService {
       name: data.name,
       email: data.email,
       password: data.password,
+      role: UserRole.USER,
       isActive: data.isActive,
       createdAt: new Date(),
       updatedAt: new Date(),
